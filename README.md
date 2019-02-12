@@ -15,18 +15,22 @@ go metrics.WithTag(
 )
 ```
 
-The parameters are:
-1. name of the influx measurement
-1. map[string]string of tags for the measurement
-1. map[string]interface{} of values
-
-In influx each measurements is split into data series identified by the name and all tags. There can be up 1.000.000 measurements in one database.
-
 The library adds some tags automatically:
   - the hostname the program is running on as "host"
   - the application name argv[0] as "application"
 
-## Environment variables
+## InfluxDB
+Currently InfluxDB is the only supported backend. Patches welcome!
+
+In influx each measurements is split into data series identified by the name and all tags. By default there can be up to 1.000.000 series in one database.
+
+### Using the InfluxDB backend
+To enable the InfluxDB backend include it in your program
+```golang
+import "github.com/jpicht/metrics/sink/influx"
+```
+
+And provide the configuration via the environment
 ```bash
 export INFLUX_SERVER="http://influx.your.local.domain:8086/"
 export INFLUX_DATABASE="metrics"
