@@ -30,7 +30,7 @@ func UInt16(name string, i uint16) types.Field { return types.NewField(name, i) 
 func UInt32(name string, i uint32) types.Field { return types.NewField(name, i) }
 
 // UInt64 value
-func UInt64(name string, i int64) types.Field { return types.NewField(name, i) }
+func UInt64(name string, i uint64) types.Field { return types.NewField(name, i) }
 
 // Float32 value
 func Float32(name string, f float32) types.Field { return types.NewField(name, f) }
